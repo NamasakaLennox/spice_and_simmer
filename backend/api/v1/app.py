@@ -18,7 +18,7 @@ CORS(app)
 def page_not_found(error):
     """returns an error for page not found
     """
-    return (jsonify({"error": "Not Found"}), 404)
+    return (jsonify({"error": "Page Not Found"}), 404)
 
 
 if __name__ == '__main__':
