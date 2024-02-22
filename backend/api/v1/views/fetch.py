@@ -54,7 +54,7 @@ def get_item(id):
 
 
 @app_views.route('/similar/<id>', strict_slashes=False)
-def get_similar():
+def get_similar(id):
     """gets similar items to the one currently being viewed
     """
     BASE_URL = f'https://api.spoonacular.com/recipes/{id}/similar'
@@ -77,7 +77,7 @@ def get_random():
 
 
 @app_views.route('/nutrition/<id>/', strict_slashes=False)
-def get_nutrition():
+def get_nutrition(id):
     """returns the nutritional information about a given recipe
     """
     BASE_URL = f'https://api.spoonacular.com/recipes/{id}/nutritionWidget.json'

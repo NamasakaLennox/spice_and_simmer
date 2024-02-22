@@ -5,10 +5,12 @@ define and register blueprint
 from api.v1.views import app_views
 from flask import Flask, jsonify
 from flask_cors import CORS
+from flask_pymongo import PyMongo
 from os import getenv
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
+
 CORS(app)
 
 
