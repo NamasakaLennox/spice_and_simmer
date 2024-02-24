@@ -36,6 +36,14 @@ export const Navbar = () => {
             <li>
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
+                to="/favourites"
+              >
+                Favourites
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ textDecoration: "none", color: "inherit" }}
                 to="/login"
               >
                 <button>Login</button>

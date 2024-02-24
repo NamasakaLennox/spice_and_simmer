@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 from api.v1.db import favourites
 from api.v1.views import app_views
-from flask import jsonify, request
+from flask import jsonify, request, Response
 from os import getenv
+from bson import json_util
+from json import loads
+
 
 API_KEY = getenv('API_KEY')
 
@@ -12,7 +15,15 @@ API_KEY = getenv('API_KEY')
 def get_favourites(id):
     """returns favourite items for a user
     """
-    return jsonify({'message': 'under construction'})
+    cursor = favourites.find({"userId": id})
+
+    if cursor:
+        list_cursor = list(cursor)
+        string = json_util.dumps(list_cursor)
+
+        return jsonify(loads(string))
+
+    return jsonify({"error": "No items added to favourites for this user"})
 
 
 @app_views.route('/add_favourites/', strict_slashes=False,
@@ -20,15 +31,15 @@ def get_favourites(id):
 def add_to_favourites():
     """adds a new item to favourites
     """
-    data = request.get_json()
-
-    if not data:
-        return jsonify({'error': 'please provide data to be added'})
-
-    favourite = data.get('data')
+    favourite = request.get_json()
 
     if not favourite:
-        return jsonify({'error': 'please provide data with label as "data"'})
+        return jsonify({'error': 'please provide data to be added'})
+
+    check = favourites.find_one({"id": favourite['id']})
+
+    if check:
+        return jsonify({'exists': 'Item already added to favourites'})
 
     favourites.insert_one(favourite)
 

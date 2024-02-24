@@ -8,6 +8,7 @@ import { Search } from "./Pages/Search";
 import { About } from "./Pages/About";
 import { Footer } from "./Components/Footer/Footer";
 import { DisplayRecipe } from "./Components/DisplayRecipe/DisplayRecipe";
+import { Favourites } from "./Pages/Favourites";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/recipe/:id" element={<DisplayRecipe />} />
           <Route path="/about" element={<About />} />
+          <Route path="/favourites" element={<Favourites />} />
         </Routes>
         <Footer />
       </BrowserRouter>

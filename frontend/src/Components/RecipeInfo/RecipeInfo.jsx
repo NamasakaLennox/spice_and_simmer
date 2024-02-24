@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./RecipeInfo.css";
 import parse from "html-react-parser";
 
 export const RecipeInfo = ({ item }) => {
+  const [fav, setFav] = useState(false);
+  const handleClick = () => {
+    item["userId"] = "2a0eabf3-f034-4d26-9487-5ad4d843a55d";
+    fetch("http://localhost:5000/api/v1/add_favourites/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+      });
+    setFav(true);
+  };
   return (
     <div>
       {Object.keys(item).length ? (
@@ -19,6 +35,9 @@ export const RecipeInfo = ({ item }) => {
           <p>
             Servings: <span>{item.servings}</span> people
           </p>
+          <button onClick={handleClick}>
+            {fav ? <>Added To Favorites</> : <>Add To Favourites</>}
+          </button>
           <h3>Recipe Summary</h3>
           <p>{parse(item.summary)}</p>
           <h3>Ingredients</h3>
