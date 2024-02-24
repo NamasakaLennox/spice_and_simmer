@@ -35,9 +35,8 @@ def search():
               "cuisine": cuisine, "diet": diet,
               "intolerances": intolerances
               }
-
+    
     res = requests.get(BASE_URL, params=params)
-
     return jsonify(res.json())
 
 
