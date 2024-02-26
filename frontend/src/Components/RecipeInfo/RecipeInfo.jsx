@@ -5,19 +5,24 @@ import parse from "html-react-parser";
 export const RecipeInfo = ({ item }) => {
   const [fav, setFav] = useState(false);
   const handleClick = () => {
-    item["userId"] = "2a0eabf3-f034-4d26-9487-5ad4d843a55d";
-    fetch("http://localhost:5000/api/v1/add_favourites/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(item),
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-      });
-    setFav(true);
+    const id = localStorage.getItem("user_id");
+    if (!id) {
+      alert("You must be logged in to add to favourites");
+    } else {
+      item["userId"] = id;
+      fetch("http://localhost:5000/api/v1/add_favourites/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(item),
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          alert(data.message);
+        });
+      setFav(true);
+    }
   };
   return (
     <div>

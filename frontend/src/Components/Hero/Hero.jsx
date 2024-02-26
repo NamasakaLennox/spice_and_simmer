@@ -21,7 +21,7 @@ export const Hero = () => {
         alt="fruits"
       />
       <div id="action">
-        <a href="#">
+        <a href="/#">
           <div id="action-button">Get Started</div>
         </a>
         <p> Get 3 Month Recipe Book For Free</p>

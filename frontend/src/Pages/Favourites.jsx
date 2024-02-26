@@ -4,17 +4,27 @@ import { DisplayResults } from "../Components/DisplayResults/DisplayResults";
 export const Favourites = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
-    const id = "2a0eabf3-f034-4d26-9487-5ad4d843a55d";
+    const id = localStorage.getItem("user_id");
 
-    fetch(`http://localhost:5000/api/v1/favourites/${id}`, {
-      method: "GET",
-    })
-      .then((resp) => resp.json())
-      .then((data) => setResults(data));
+    if (!id) {
+      setResults(null);
+    } else {
+      console.log(id);
+
+      fetch(`http://localhost:5000/api/v1/favourites/${id}`, {
+        method: "GET",
+      })
+        .then((resp) => resp.json())
+        .then((data) => setResults(data));
+    }
   }, []);
   return (
     <div>
-      <DisplayResults results={results} />
+      {results === null ? (
+        <h3>You must be logged in to view your favourites</h3>
+      ) : (
+        <DisplayResults results={results} />
+      )}
     </div>
   );
 };

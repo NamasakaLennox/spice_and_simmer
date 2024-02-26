@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DisplayResults } from "../DisplayResults/DisplayResults";
+import "./SearchResults.css";
 
 const cuisine_list = [
   "",
@@ -50,7 +51,6 @@ const intolerances = [
 
 export const SearchResults = () => {
   const [results, setResults] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
   const [search, setSearch] = useState({
     query: "",
     cuisine: "",
@@ -92,9 +92,7 @@ export const SearchResults = () => {
         response = data["results"];
         setResults(response);
       });
-    setSearchTitle(
-      `${search.query} ${search.cuisine} ${search.diet} ${search.intolerances}`
-    );
+
     setSearch({
       query: "",
       cuisine: "",
@@ -181,7 +179,7 @@ export const SearchResults = () => {
       <div>
         {results ? (
           <div className="search-display">
-            <h2>Search results for "{searchTitle}"</h2>
+            <h2>Search results</h2>
             <DisplayResults results={results} />
           </div>
         ) : (

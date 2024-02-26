@@ -4,49 +4,47 @@ export const LoginSignup = () => {
   const [state, setState] = useState("Login");
 
   const login = async () => {
-    console.log("login");
-    //console.log("Login function executed", formData);
-    // let responseData;
-    // await fetch("http://localhost:4000/login", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/form-data",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => (responseData = data));
+    let responseData;
+    await fetch("http://localhost:5000/api/v1/login/", {
+      method: "POST",
+      headers: {
+        Accept: "application/form-data",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => (responseData = data));
 
-    // if (responseData.success) {
-    //   localStorage.setItem("auth-token", responseData.token);
-    //   window.location.replace("/");
-    // } else {
-    //   alert(responseData.error);
-    // }
+    if (responseData.error) {
+      alert(responseData.error);
+    } else {
+      localStorage.setItem("x-access-token", responseData.token);
+      localStorage.setItem("user_id", responseData.user.id);
+      alert(`Successfully logged in as ${responseData.user.name}`);
+      window.location.replace("/");
+    }
   };
 
   const signup = async () => {
-    console.log("signup");
-    //console.log("Signup function executed", formData);
-    // let responseData;
-    // await fetch("http://localhost:4000/signup", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/form-data",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => (responseData = data));
+    let responseData;
+    await fetch("http://localhost:5000/api/v1/create_user/", {
+      method: "POST",
+      headers: {
+        Accept: "application/form-data",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => (responseData = data));
 
-    // if (responseData.success) {
-    //   localStorage.setItem("auth-token", responseData.token);
-    //   window.location.replace("/");
-    // } else {
-    //   alert(responseData.error);
-    // }
+    if (responseData.error) {
+      alert(responseData.error);
+    } else {
+      alert(responseData.message);
+      window.location.replace("/login");
+    }
   };
 
   const [formData, setFormData] = useState({
@@ -104,7 +102,7 @@ export const LoginSignup = () => {
         {state === "Sign up" ? (
           <>
             <div className="loginsignup-agree">
-              <p>By continuing, I agree to the terms of use & privacy.</p>
+              <p>By continuing, you agree to the terms of use & privacy.</p>
             </div>
             <p className="loginsignup-login">
               Already have an account?{" "}
@@ -120,7 +118,7 @@ export const LoginSignup = () => {
           </>
         ) : (
           <p className="loginsignup-login">
-            Create an Account?{" "}
+            Don't have an Account?{" "}
             <span
               style={{ cursor: "pointer" }}
               onClick={() => {
