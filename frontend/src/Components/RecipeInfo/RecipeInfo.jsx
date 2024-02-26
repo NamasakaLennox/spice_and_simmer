@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import "./RecipeInfo.css";
 import parse from "html-react-parser";
 
 export const RecipeInfo = ({ item }) => {
-  const [fav, setFav] = useState(false);
   const handleClick = () => {
     const id = localStorage.getItem("user_id");
     if (!id) {
@@ -21,7 +19,6 @@ export const RecipeInfo = ({ item }) => {
         .then((data) => {
           alert(data.message);
         });
-      setFav(true);
     }
   };
   return (
@@ -40,9 +37,7 @@ export const RecipeInfo = ({ item }) => {
           <p>
             Servings: <span>{item.servings}</span> people
           </p>
-          <button onClick={handleClick}>
-            {fav ? <>Added To Favorites</> : <>Add To Favourites</>}
-          </button>
+          <button onClick={handleClick}>Add To Favourites</button>
           <h3>Recipe Summary</h3>
           <p>{parse(item.summary)}</p>
           <h3>Ingredients</h3>

@@ -36,10 +36,10 @@ def add_to_favourites():
     if not favourite:
         return jsonify({'error': 'please provide data to be added'})
 
-    check = favourites.find_one({"id": favourite['id']})
+    check = favourites.find_one({"id": favourite['id'], 'userId': favourite['userId']})
 
     if check:
-        return jsonify({'exists': 'Item already added to favourites'})
+        return jsonify({'message': 'Item already added to favourites'})
 
     favourites.insert_one(favourite)
 

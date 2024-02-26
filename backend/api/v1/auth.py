@@ -65,6 +65,9 @@ def login():
         }))
 
     password = body.get('password')
+    if not password:
+        return jsonify({'error': 'please provide a password'})
+
     password = md5(password.encode()).hexdigest()
 
     if (user['password'] == password):
