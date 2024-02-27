@@ -1,0 +1,207 @@
+.right-layer {
+  padding: 0;
+  margin: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #ff4141;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -999;
+}
+
+.left-layer {
+  padding: 0;
+  margin: 0;
+  width: 30vw;
+  height: 80vh;
+  background-color: #ff4141;
+  position: absolute;
+  z-index: -998;
+}
+
+/* hr {
+    width: 25% !important;
+  } */
+
+.img-popular-recipe {
+  /* width: 25vw !important;
+    height: 50vh !important; */
+  width: 350px !important;
+  height: 300px !important;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.img-popular-recipe p {
+  width: 53%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .left-layer,
+  .right-layer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  nav .collapse {
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .right-layer {
+    width: 100vw;
+  }
+
+  .left-layer {
+    bottom: 0;
+    left: 0;
+  }
+
+  hr {
+    width: 100% !important;
+  }
+
+  .container-popular-recipe {
+    padding: 10px;
+  }
+
+  .img-popular-recipe {
+    width: 100% !important;
+  }
+
+  .img-popular-recipe p {
+    font-size: 2%;
+  }
+}
+
+.services_section {
+  width: 100%;
+  float: left;
+  background-image: url(../Assets/services-bg.png);
+  height: auto;
+  padding-bottom: 100px;
+  background-attachment: fixed;
+}
+
+.services_taital {
+  width: 100%;
+  float: left;
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.services_text {
+  width: 100%;
+  float: left;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
+}
+
+.house_icon {
+  width: 200px;
+  height: auto;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.house_icon img {
+  width: 45px;
+  min-height: 50px;
+}
+
+.box_main .house_icon .image_2 {
+  display: none;
+}
+
+.box_main:hover .house_icon .image_2 {
+  display: block;
+}
+
+.box_main:hover .house_icon .image_1 {
+  display: none;
+}
+
+.box_main:hover {
+  background-color: #ffffff;
+}
+
+.box_main {
+  width: 100%;
+  background-color: #f76d37;
+  padding: 40px 30px;
+  box-shadow: 0px 0px 18px -6px;
+}
+
+.box_main:hover .decorate_text {
+  color: #000;
+}
+
+.box_main:hover .tation_text {
+  color: #000;
+}
+
+.box_main:hover .readmore_bt {
+  display: block;
+}
+
+.box_main:hover .readmore_bt a {
+  color: #ffffff;
+  background-color: #000;
+}
+
+.services_section_2 {
+  width: 100%;
+  float: left;
+  padding-top: 50px;
+}
+
+.decorate_text {
+  width: 100%;
+  font-size: 28px;
+  color: #ffffff;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.tation_text {
+  width: 100%;
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
+}
+
+.readmore_bt {
+  width: 175px;
+  padding-top: 40px;
+  margin: 0 auto;
+  display: flex;
+  display: none;
+  padding-bottom: 40px;
+}
+
+.readmore_bt a {
+  width: 100%;
+  float: left;
+  font-size: 18px;
+  background-color: #070603;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.readmore_bt a:hover {
+  color: #ffffff;
+  background-color: #f76d37;
+}

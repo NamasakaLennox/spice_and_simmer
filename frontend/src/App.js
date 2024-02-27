@@ -9,6 +9,8 @@ import { About } from "./Pages/About";
 import { Footer } from "./Components/Footer/Footer";
 import { DisplayRecipe } from "./Components/DisplayRecipe/DisplayRecipe";
 import { Favourites } from "./Pages/Favourites";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
 
 const App = () => {
   return (

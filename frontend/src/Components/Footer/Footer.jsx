@@ -8,6 +8,7 @@ export const Footer = () => {
       <div className="footer-img">
         <img src={logo} alt="" />
       </div>
+      <div className="footer"></div>
     </div>
   );
 };

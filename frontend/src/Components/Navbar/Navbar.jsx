@@ -43,7 +43,7 @@ export const Navbar = () => {
               </Link>
               {menu === "search" ? <hr /> : <></>}
             </li>
-            <li
+            {/* <li
               onClick={() => {
                 setMenu("about");
               }}
@@ -55,7 +55,7 @@ export const Navbar = () => {
                 About
               </Link>
               {menu === "about" ? <hr /> : <></>}
-            </li>
+            </li> */}
             <li
               onClick={() => {
                 setMenu("favourites");
