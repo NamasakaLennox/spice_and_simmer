@@ -174,7 +174,7 @@ export const SearchResults = () => {
               </select>
             </div>
             <div className="search-field-item">
-              <label htmlFor="intolerances">Intolerances</label>
+              <label htmlFor="intolerances">Intolerances/Allergies</label>
               <select
                 value={search.intolerances}
                 onChange={changeHandler}
@@ -198,7 +198,25 @@ export const SearchResults = () => {
       <div className="results">
         {results ? (
           <div className="search-display">
-            <h2>Search results</h2>
+            <div
+              className="d-flex align-items-center my-5 animate__animated animate__flipInX"
+              style={{ height: "60px", paddingLeft: "80px" }}
+            >
+              <div
+                className="vr"
+                style={{
+                  width: "10px",
+                  backgroundColor: "#efc81a",
+                  opacity: "100%",
+                }}
+              ></div>
+              <p
+                className="m-0 ms-3 fs-1 fw-semibold"
+                style={{ color: "#3f3a3a" }}
+              >
+                Search Results
+              </p>
+            </div>
             <DisplayResults results={results} />
           </div>
         ) : (

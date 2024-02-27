@@ -127,7 +127,7 @@ export const Hero = () => {
               {parse(new_recipe.summary)}
             </p>
             <Link
-              to={`/detail-recipe/${"id"}`}
+              to={`/recipe/${new_recipe.id}`}
               className="btn btn-lg"
               style={{ backgroundColor: "#efc81a", color: "#fff" }}
             >
@@ -156,9 +156,10 @@ export const Hero = () => {
                     <img src={icon1} className="image_1" alt="" />
                     <img src={icon1} className="image_2" alt="" />
                   </div>
-                  <h3 className="decorate_text">Exciting Recipes</h3>
+                  <h3 className="decorate_text">Nutritional Value</h3>
                   <p className="tation_text">
-                    Provides you with the best recipe for all types of meals.
+                    Provides you with the best nutritional contents for every
+                    meal.
                   </p>
                 </div>
               </div>

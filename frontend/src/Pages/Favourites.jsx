@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DisplayResults } from "../Components/DisplayResults/DisplayResults";
+import "./CSS/Favourites.css";
+import { Link } from "react-router-dom";
 
 export const Favourites = () => {
   const [results, setResults] = useState([]);
@@ -15,15 +17,42 @@ export const Favourites = () => {
         method: "GET",
       })
         .then((resp) => resp.json())
-        .then((data) => setResults(data));
+        .then((data) => {
+          if (data.length) {
+            setResults(data);
+          } else {
+            setResults("empty");
+          }
+        });
     }
   }, []);
   return (
     <div>
       {results === null ? (
-        <h3>You must be logged in to view your favourites</h3>
+        <div className="favourites-error">
+          <h3>Oops! You must be logged in to view your favourites</h3>
+          <p>
+            Click{" "}
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/login"
+            >
+              <button>Here</button>
+            </Link>{" "}
+            to log in
+          </p>
+        </div>
       ) : (
-        <DisplayResults results={results} />
+        <div>
+          {results === "empty" ? (
+            <div className="favourites-error">
+              <h3>Oops! You have no items in favourites</h3>
+              <p>Search for Recipes and add them to favourites</p>
+            </div>
+          ) : (
+            <DisplayResults results={results} />
+          )}
+        </div>
       )}
     </div>
   );

@@ -1,0 +1,80 @@
+.nutrition-container {
+  margin: 0 60px;
+}
+
+.nutrition-container hr {
+  width: 500px;
+  height: 5px;
+}
+
+.summary p {
+  font-size: 18px;
+}
+.summary span {
+  color: #ff4141;
+}
+
+.nutrients-good {
+  padding-top: 20px;
+}
+
+.nutrients-bad {
+  padding-top: 20px;
+}
+
+.nutrients-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.nutrients-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.nutrients-table th,
+.nutrients-table td {
+  padding: 12px 15px;
+}
+
+.nutrients-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.nutrients-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.nutrients-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+.nutrients-tables {
+  display: flex;
+  gap: 40px;
+}
+
+.loading p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.loader {
+  margin: auto;
+  border: 8px solid #eaf0f6;
+  border-radius: 50%;
+  border-top: 8px solid #ff7a59;
+  width: 30px;
+  height: 30px;
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

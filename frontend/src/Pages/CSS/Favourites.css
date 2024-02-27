@@ -1,0 +1,22 @@
+.favourites-error {
+  margin: 15px 60px;
+  height: 30vh;
+}
+.favourites-error h3 {
+  font-size: 24px;
+}
+.favourites-error p {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.favourites-error button {
+  color: white;
+  background: #ff4141;
+  margin-top: auto;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+}

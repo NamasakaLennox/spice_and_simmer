@@ -6,15 +6,16 @@ export const DisplayResults = ({ results }) => {
   return (
     <div className="result-container">
       {results.map((item, i) => (
-        <div key={i} className="result-item">
-          <Link
-            style={{ textDecoration: "none", color: "inherit" }}
-            to={`/recipe/${item.id}`}
-          >
+        <Link
+          style={{ textDecoration: "none", color: "inherit" }}
+          to={`/recipe/${item.id}`}
+        >
+          <div key={i} className="result-item">
             <img src={item.image} alt="" />
-          </Link>
-          <p className="item-title">{item.title}</p>
-        </div>
+
+            <p className="item-title">{item.title}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );
